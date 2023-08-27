@@ -4,14 +4,27 @@ We have introduced certain modifications to the image corruption functions origi
 
 ## Installation and Usage
 
-Please refer <https://github.com/hendrycks/robustness/tree/master/ImageNet-C/imagenet_c> to install corruption functions. Before executing the command `pip install -e .`, substitute **corruptions.py** with the file contained within this directory.  
+Please refer <https://github.com/hendrycks/robustness> to install corruption functions:
+
+```
+git clone https://github.com/hendrycks/robustness.git
+cd robustness/ImageNet-C/imagenet_c/imagenet_c
+```
+
+Substitute **corruptions.py** with the file contained within this directory. After that, execute:
+
+```
+cd ..
+pip install -e .
+```
 
 We can use the function `corrupt` to corrupt images with all 19 kinds of methods porposed in ImageNet-C.  
 
 For example  
+```
+from imagenet_c import corrupt 
 
-> from imagenet_c import corrupt  
->
-> corrupt(x, severity=1,corruption_name=‘snow’)
+corrupt(x, severity=1,corruption_name=‘snow’)
+```
 
 It means that image \'x\' is corrupted with snow, severity 1.
