@@ -20,7 +20,7 @@ pip install -e .
 
 We can use the function `corrupt` to corrupt images with all 19 kinds of methods porposed in ImageNet-C.  
 
-For example  
+For example:  
 ```
 from imagenet_c import corrupt 
 
