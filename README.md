@@ -36,3 +36,26 @@ Note that, unless explicitly stated, the backbone of all models is [ResNet-50](h
 | RoI Transformer (backbone=Swin-L) | [Liu et al.](https://arxiv.org/abs/2103.14030) |  77.6  | 47.5  | 61.2  | 66.7  | 85.9  |
 | RoI Transformer (augmentation=RandomRotate) | |  76.4  | 40.9  | 53.6  | 61.3  | 80.2  |
 | RoI Transformer (augmentation=Mosaic)  | [Bochkovskiy et al.](https://arxiv.org/abs/2004.10934) |  74.4  | 38.8  | 52.2  | 59.6  | 80.1  |
+
+## Citing
+
+If you make use of the data in DOTA-C, please cite our following paper:
+
+```
+@inproceedings{xia2018dota,
+  title={DOTA: A large-scale dataset for object detection in aerial images},
+  author={Xia, Gui-Song and Bai, Xiang and Ding, Jian and Zhu, Zhen and Belongie, Serge and Luo, Jiebo and Datcu, Mihai and Pelillo, Marcello and Zhang, Liangpei},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={3974--3983},
+  year={2018}
+}
+
+@misc{he2023robustness,
+      title={On the Robustness of Object Detection Models in Aerial Images}, 
+      author={Haodong He and Jian Ding and Gui-Song Xia},
+      year={2023},
+      eprint={2308.15378},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
