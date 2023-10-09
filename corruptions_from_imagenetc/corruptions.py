@@ -167,7 +167,7 @@ def fgsm(x, source_net, severity=1):
 def gaussian_blur(x, severity=1):
     c = [1, 2, 3, 4, 6][severity - 1]
 
-    x = gaussian(np.array(x) / 255., sigma=c, multichannel=True)
+    x = gaussian(np.array(x) / 255., sigma=c, channel_axis=2)
     return np.clip(x, 0, 1) * 255
 
 
@@ -175,7 +175,7 @@ def glass_blur(x, severity=1):
     # sigma, max_delta, iterations
     c = [(0.7, 1, 2), (0.9, 2, 1), (1, 2, 3), (1.1, 3, 2), (1.5, 4, 2)][severity - 1]
 
-    x = np.uint8(gaussian(np.array(x) / 255., sigma=c[0], multichannel=True) * 255)
+    x = np.uint8(gaussian(np.array(x) / 255., sigma=c[0], channel_axis=2) * 255)
 
     # locally shuffle pixels
     for i in range(c[2]):
@@ -186,7 +186,7 @@ def glass_blur(x, severity=1):
                 # swap
                 x[h, w], x[h_prime, w_prime] = x[h_prime, w_prime], x[h, w]
 
-    return np.clip(gaussian(x / 255., sigma=c[0], multichannel=True), 0, 1) * 255
+    return np.clip(gaussian(x / 255., sigma=c[0], channel_axis=2), 0, 1) * 255
 
 
 def defocus_blur(x, severity=1):
@@ -291,7 +291,7 @@ def snow(x, severity=1):
 
     snow_layer = PILImage.fromarray((np.clip(snow_layer.squeeze(), 0, 1) * 255).astype(np.uint8), mode='L')
     output = BytesIO()
-    snow_layer.save(output, format='PNG')
+    snow_layer.save(output, format='JPEG')
     snow_layer = MotionImage(blob=output.getvalue())
 
     snow_layer.motion_blur(radius=c[4], sigma=c[5], angle=np.random.uniform(-135, -45))
